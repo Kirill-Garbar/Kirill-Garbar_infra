@@ -1,6 +1,7 @@
 [![Build Status](https://travis-ci.com/Otus-DevOps-2018-09/Kirill-Garbar_infra.svg?branch=master)](https://travis-ci.com/Otus-DevOps-2018-09/Kirill-Garbar_infra)
 
-# HW-3
+# HW-3. Cloud-bastion.
+## PR: https://github.com/Otus-DevOps-2018-09/Kirill-Garbar_infra/pull/1
 ## В процессе сделано:
  - Созданы две ВМ. Одна с внутренним. Одна с внешним и внутренним IP - пограничный сервер.
  - Проработаны несколько вариантов подключения через proxy по SSH
@@ -34,7 +35,8 @@ someinternalhost_IP = 10.156.0.2
  - Перейти по ссылке https://35.187.10.59.sslip.io
  
  
- # HW-4
+ # HW-4. Cloud-testapp.
+ ## PR: https://github.com/Otus-DevOps-2018-09/Kirill-Garbar_infra/pull/2
  ## В процессе сделано:
  - Развёрнуто приложение на виртуальной машине в GCP.
  - Добавлено вручную правило для разрешения входящего трафика на сервера с определённым тегом.
@@ -79,6 +81,7 @@ gcloud compute firewall-rules create default-puma-server \
 ```
 
 # HW-5. Packer-base.
+## PR: https://github.com/Otus-DevOps-2018-09/Kirill-Garbar_infra/pull/3
 ## В процессе сделано:
  - Выдали доступ приложению Packer к GCP.
  - Создали по инструкции базовый образ ubuntu с установленными ruby и mongodb и задеплоили в него приложение.
@@ -97,6 +100,7 @@ gcloud compute firewall-rules create default-puma-server \
  - Пройти по ссылке http://IP:9292.
 
 # HW-6. Terraform-1.
+## PR: https://github.com/Otus-DevOps-2018-09/Kirill-Garbar_infra/pull/4
 ## В процессе сделано:
  - Удалили ключ из метаданных проекта, чтобы протестировать добавление ключа через метаданый ресурса.
  - Я перевёз средство разработки из Linux nano в MS VS Code. Пришлось заново настроить аутентификацию пакера и терраформа в gcloud.
@@ -140,6 +144,7 @@ gcloud compute firewall-rules create default-puma-server \
  - Сейчас health-check работает только по недоступности приложения. Желательно, чтобы работала по превышению нагрузки, по кодам ответа HTTP. Чтобы работало распределение пользователей по прозрачным правилам, например, приблизительное непревышение разницы метрик нагрузки.
 
  # HW-7. Terraform-2.
+ ## PR: https://github.com/Otus-DevOps-2018-09/Kirill-Garbar_infra/pull/5
  ## В процессе сделано
  - Импортировали правило файерволла, разрешающее подключение по SSH к машинам. Это было сделано, т.к. добавление правила с таким же именем вызывло конфликт, т.к. ТФ ничего не знал об этом правиле, т.к. в state-файле не было такой информации.
  - Изучили вопрос явных и неявных связей между ресурсами. Обратили вниманиеd в каком порядке добавляются и удаляются зависимые ресурсы.
@@ -179,6 +184,7 @@ P.S. Приложение получает адрес БД из переменн
  - Выполнить terraform init и terraform apply(Команда создаст инфраструктуру с приложением).
 
  # HW-8. Ansible-1.
+ ## PR: https://github.com/Otus-DevOps-2018-09/Kirill-Garbar_infra/pull/6
  ## В процессе сделано
  - Интегрировал своё окружение на Windows с Linux. Git остался на Windows, в Linux подключил раздел по cifs.
  - Установили Python2.7, pip, Ansible.
@@ -218,6 +224,7 @@ ansible app -m ping -i inventory.json
 - Выполнить команды из п. выше.
 
 # HW-9. Ansible-2.
+## PR: https://github.com/Otus-DevOps-2018-09/Kirill-Garbar_infra/pull/7
 ## В процессе сделано.
 - Добавили в gitignore маску для временных файлов Ansible.
 - Написали playbook с одним task внутри. Запускали, фильтруя этапы таска по тэгам, а хосты ключом --limit.
@@ -249,7 +256,7 @@ packer build packer/db.json
 - Перейти в директорию ansible и выполнить ansible-playbook site.yml.
 - Перейти в браузере по ссылке http://app_external_ip:9292.
 
-# HW-10. Ansible-3.
+# HW-10. Ansible-3.## PR: https://github.com/Otus-DevOps-2018-09/Kirill-Garbar_infra/pull/8
 ## В процессе сделано.
 - Создали роли для db и app.
 - Прикрутил dynamic inventory. Скрипт и ini файл лежит в директориях prod и stage. Не увере, что это правильно, но по-другому не читаются переменные group_var и host_vars.
@@ -289,6 +296,7 @@ packer build packer/db.json
 - Залогиниться на виртуалки под пользователем appuser, выполнить su user_name. Ввести password. Явки-пароли взять из ДЗ.
 
 # HW-11. Ansible-4.
+## PR: https://github.com/Otus-DevOps-2018-09/Kirill-Garbar_infra/pull/9
 ## В процессе сделано
 - Установили VirtualBox и Vagrant.
 - Заполнили конфигурацию в ВМ в Vagrantfile.
